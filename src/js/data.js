@@ -1,0 +1,26 @@
+const platformIcons = {
+  android: "mobile.svg",
+  ios:"mobile.svg",
+  psp: "playstation4.svg",
+  "ps-vita": "playstation4.svg",
+  playstation1: "playstation4.svg",
+  playstation2: "playstation4.svg",
+  playstation3: "playstation4.svg",
+  playstation4: "playstation4.svg",
+  playstation5: "playstation4.svg",
+  wii: "switch.svg",
+  "wii-u": "switch.svg",
+  "nintendo-switch": "switch.svg",
+  "xbox-old": "xbox.svg",
+  xbox360: "xbox.svg",
+  "xbox-one": "xbox.svg",
+  "xbox-series-x": "xbox.svg",
+  pc: "windows.svg",
+  "nintendo-3ds": "search.svg",
+  "nintendo-ds": "search.svg",
+  "nintendo-dsi": "search.svg",
+  macos: "search.svg",
+  linux: "linux.svg",
+};
+
+export { platformIcons };

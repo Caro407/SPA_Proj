@@ -7,19 +7,31 @@
 </head>
 
 <body>
-  <h1>The Hyper Programe</h1>
-  <form>
-    <label for="game">What are you looking for ?</label>
-    <input type="text" name="game" value="" id="game-searched">
-    <button id="submit-btn" type="button" name="button">Submit</button>
-  </form>
-
-  <section id="pageContent" class="container">
-    <div id="articles-list" class="row">
-
+  <div class="container">
+    <div class="row mt-5 mb-3">
+      <h1 class="col-8">The Hyper Programe</h1>
+      <div class="d-flex justify-content-end align-items-center col-4">
+        <form id="game-searched">
+          <img src="https://icon-library.com/images/google-search-magnifying-glass-icon/google-search-magnifying-glass-icon-5.jpg" alt="Google loupe" class="icon" />
+          <input type="text" name="game" id="game-searched-input" value="" placeholder="Find a game...">
+        </form>
+      </div>
     </div>
-  </section>
+    <div id="intro">
+      <h2><strong>Welcome,</strong></h2>
+      <p>The Hyper Programe is the world's premier event for computer, video games and related products. At The Hyper Programe, the video game industry's top talent pack the Los Angeles Convention Center, connecting tens of thousands of the best,
+        brightest, and most innovative in the interactive entertainment industry.
+        For three exciting days, leading-edge comparnies, groundbreaking new technologies, and never-before-seen products will be showcased. The Hyper Programe connects you with both new and existing partners, industry executives, gamers, and social
+        influencers providing unprecedent exposure.</p>
+    </div>
 
+
+    <section id="pageContent">
+      <div id="articles-list" class="row">
+
+      </div>
+    </section>
+  </div>
   <script src="./dist/bundle.js"></script>
 </body>
 

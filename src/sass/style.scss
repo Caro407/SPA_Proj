@@ -1,3 +1,105 @@
 @import "~bootstrap/scss/bootstrap";
 
 $color-red: rgb(255, 20, 20);
+$black: #262626;
+
+body {
+  background-color: $black;
+  color: white;
+  font-size: 1rem;
+}
+
+h1 {
+  color: $color-red;
+  font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #e6e6e6;
+  border-radius: 20px;
+  width: 30vw;
+  height: 35px;
+}
+
+@media screen and (min-width: 900px) {
+  form {
+    width: 40vw;
+    height: 40px;
+  }
+}
+
+input {
+  border: none;
+  display: block;
+  margin: 0 auto;
+  width: 75%;
+  height: 80%;
+  font-size: 90%;
+  background-color: $black;
+}
+
+input:focus {
+  outline: none;
+}
+
+.icon {
+  height: 20px;
+  margin: 0px 10px;
+}
+
+.card {
+  background-color: $black;
+  border: none;
+}
+
+#showmore-btn {
+  margin: 0 auto;
+  padding: 0.75rem 2.5rem;
+}
+
+.img-list {
+    width: auto;
+    height: 200px;
+}
+
+.img-list:hover {
+  opacity: 40%;
+}
+
+.card-banner {
+  width: auto;
+}
+
+a, a:visited {
+	text-decoration: none;
+	position: relative;
+	color: white;
+
+	&:after {
+		content: '';
+		height: 3px;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0%;
+		background: white;
+		transition: 0.2s;
+	}
+
+	&:hover:after {
+		width: 100%;
+	}
+
+	&.block {
+		display: block;
+		padding: 0.5em;
+
+		&:hover {
+			background: #eee;
+		}
+	}
+}

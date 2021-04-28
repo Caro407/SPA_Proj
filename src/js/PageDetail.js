@@ -14,6 +14,7 @@ const PageDetail = (argument = "") => {
       .then((response) => response.json())
       .then(response => {
         console.log(response);
+        document.getElementById('intro').classList.add('d-none');
         constructPage(response);
         getInfos(response.developers, "developer", displayDevelopers);
         getInfos(response.publishers, "publisher", displayPublishers);
@@ -30,11 +31,13 @@ const PageDetail = (argument = "") => {
     pageContent.innerHTML = `
       <section class="page-detail">
         <div class="article card">
-          <img src="${gameInfo.background_image}" class="image-top" alt="game_image">
+          <img src="${gameInfo.background_image}" class="card-banner" alt="game_image">
           <h1 id="title" class="card-title">${gameInfo.name}</h1>
-          <p id="release-date">Release date : <span>${gameInfo.released}</span></p>
+          <div class="row">
+            <p id="release-date" class="col-8">Release date : <span>${gameInfo.released}</span></p>
+            <p id="rating" class="col-4">Rating : ${gameInfo.rating} (${gameInfo.ratings_count} ratings)</p>
+          </div>
           <div id="card-body">
-            <p id="rating">Rating : ${gameInfo.rating} (${gameInfo.ratings_count} ratings)</p>
             <p id="description">${gameInfo.description}</p>
             <div id="developer"></div>
             <div id="publisher"></div>

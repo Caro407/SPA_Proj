@@ -9928,3 +9928,98 @@ h3 {
     border-color: #dee2e6;
   }
 }
+body {
+  background-color: #262626;
+  color: white;
+  font-size: 1rem;
+}
+
+h1 {
+  color: #ff1414;
+  font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #e6e6e6;
+  border-radius: 20px;
+  width: 30vw;
+  height: 35px;
+}
+
+@media screen and (min-width: 900px) {
+  form {
+    width: 40vw;
+    height: 40px;
+  }
+}
+input {
+  border: none;
+  display: block;
+  margin: 0 auto;
+  width: 75%;
+  height: 80%;
+  font-size: 90%;
+  background-color: #262626;
+}
+
+input:focus {
+  outline: none;
+}
+
+.icon {
+  height: 20px;
+  margin: 0px 10px;
+}
+
+.card {
+  background-color: #262626;
+  border: none;
+}
+
+#showmore-btn {
+  margin: 0 auto;
+  padding: 0.75rem 2.5rem;
+}
+
+.img-list {
+  width: auto;
+  height: 200px;
+}
+
+.img-list:hover {
+  opacity: 40%;
+}
+
+.card-banner {
+  width: auto;
+}
+
+a, a:visited {
+  text-decoration: none;
+  position: relative;
+  color: white;
+}
+a:after, a:visited:after {
+  content: "";
+  height: 3px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  background: white;
+  transition: 0.2s;
+}
+a:hover:after, a:visited:hover:after {
+  width: 100%;
+}
+a.block, a:visited.block {
+  display: block;
+  padding: 0.5em;
+}
+a.block:hover, a:visited.block:hover {
+  background: #eee;
+}
