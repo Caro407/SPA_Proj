@@ -1,13 +1,12 @@
 const PageDetail = (params = "") => {
-  const searchGame = () => {
-    //let cleanedArgument = argument.replace(/\s+/g, "-");
+  const defaultSearchParams = {
+    key: "d36a865877a14bb08622b5ba79128cb3"
+  };
 
+  const searchGame = () => {
     const URL = "https://api.rawg.io/api/games/";
 
     const fetchURL = (params) => {
-      const defaultSearchParams = {
-        key: "d36a865877a14bb08622b5ba79128cb3"
-      };
 
       let query = new URLSearchParams(defaultSearchParams);
 
@@ -25,7 +24,7 @@ const PageDetail = (params = "") => {
         getInfos(response.tags, "tag", displayTags);
         getInfos(response.genres, "genre", displayGenres);
         getInfos(response.platforms, "platform", displayPlatforms);
-        getScreenshots(URL, params, buildParamsIndex);
+        getScreenshots(URL, response.id);
         return response;
       });
   };
@@ -56,6 +55,17 @@ const PageDetail = (params = "") => {
       </section>
     `;
   }
+
+  const getScreenshots = (URL, argument) => {
+    let query = new URLSearchParams(defaultSearchParams);
+    fetch(URL + `${argument}/screenshots?` + query)
+    .then((response) => response.json())
+    .then((response) => {
+      console.log(response);
+      getInfos(response.results, "screenshots", displayScreenshots);
+    })
+  };
+
   searchGame();
 };
 
@@ -69,50 +79,33 @@ const getInfos = (array, info, htmlRenderer) => {
   };
 };
 
-const getScreenshots = (URL, argument, buildParams) => {
-  fetch(URL + `/${argument}/screenshots?` + buildParams())
-  .then((response) => response.json())
-  .then((response) => {
-    console.log(response);
-    getInfos(response.results, "screenshots", displayScreenshots);
-  })
-};
-
-const getTrailer = (URL, argument, buildParams) => {
-  fetch(URL + `/${argument}/movies?` + buildParams())
-  .then((response) => response.json())
-  .then((response) => {
-    console.log(response);
-  })
-};
-
 const displayDevelopers = (container, developer) => {
   container.innerHTML += `
-    <li>${developer.name}</li>
+    <li><a href="index.html?developers=${developer.id}#pagelist">${developer.name}</a></li>
   `
 };
 
 const displayPublishers = (container, publisher) => {
   container.innerHTML += `
-    <li>${publisher.name}</li>
+    <li><a href="index.html?publishers=${publisher.id}#pagelist">${publisher.name}</a></li>
   `
 };
 
 const displayTags = (container, tag) => {
   container.innerHTML += `
-    <p class="badge badge-pill badge-primary">${tag.name}</p>
+    <a href="index.html?tags=${tag.id}#pagelist" class="badge badge-primary">${tag.name}</a>
   `
 };
 
 const displayGenres = (container, genre) => {
   container.innerHTML += `
-    <p class="badge badge-pill badge-secondary">${genre.name}</p>
+    <a href="index.html?genres=${genre.id}#pagelist" class="badge badge-secondary">${genre.name}</a>
   `
 };
 
 const displayPlatforms = (container, platform) => {
   container.innerHTML += `
-    <li>${platform.platform.name}</li>
+    <li><a href="index.html?platforms=${platform.platform.id}#pagelist">${platform.platform.name}</a></li>
   `
 };
 
