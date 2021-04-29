@@ -61,7 +61,7 @@ const PageList = (pageParams = "") => {
     if(articleNumber < 27 && articleNumber < data.count) {
       let articlesList = document.getElementById('articles-list');
       articlesList.innerHTML += `
-      <button id="showmore-btn" type="button" name="button" class="btn btn-red my-2" data-url="${data.next}">Show more</button>`;
+      <a id="showmore-btn" type="button" name="button" class="btn btn-red my-2" data-url="${data.next}">Show more</a>`;
       let button = document.getElementById('showmore-btn');
       button.addEventListener('click', (event) => {
         event.preventDefault;

@@ -3,6 +3,20 @@
 $red: #dc3545;
 $black: #262626;
 
+@mixin button {
+    background-color: $red;
+    color: white;
+    border-radius: 2%;
+}
+
+@mixin overlay-image{
+  background: linear-gradient(to bottom, #00000088 30%, transparent);
+
+  &:hover {
+    background: linear-gradient(to bottom, #000000cc 30%, #00000099);
+  }
+}
+
 body {
   background-color: $black;
   color: white;
@@ -66,10 +80,7 @@ input:focus {
     background-size: cover;
     border-radius: 2%;
     .img-list-text {
-        background: linear-gradient(to bottom, #00000088 30%, transparent);
-        &:hover {
-          background: linear-gradient(to bottom, #000000cc 30%, #00000099);
-        }
+      @include overlay-image;
         &:hover * {
           transform: scale(1.05);
         }
@@ -121,10 +132,8 @@ a, a:visited {
 .form-group {
   width: 20vw;
   #platform-select {
-    background-color: #dc3545;
-    border-radius: 1px;
-    color: white;
-    border-color: #dc3545;
+    @include button;
+    border-color: $red;
     padding-right: 2rem;
   }
 }
@@ -134,13 +143,12 @@ p {
 }
 
 .btn-red {
-  background-color: $red;
-  color: white;
-  border-radius: 2px;
+  @include button;
   padding: 0.75rem 2.5rem;
 }
 
 .jumbotron {
+  @include overlay-image;
   height: 40vh;
   background-size: cover;
 }

@@ -34,9 +34,11 @@ const PageDetail = (params = "") => {
     pageContent.innerHTML = `
       <section class="page-detail">
         <div class="article card">
-        <div class="jumbotron jumbotron-fluid d-flex justify-content-end align-items-end" style="background-image: url('${gameInfo.background_image}');">
-          <a href="${gameInfo.website}" id="website" class="btn btn-red mr-2">Check website !</a>
-        </div>
+          <div style="background-image: url('${gameInfo.background_image}');">
+            <div class="jumbotron jumbotron-fluid d-flex justify-content-end align-items-end mb-0">
+              <a href="${gameInfo.website}" id="website" class="btn btn-red mr-2">Check website !</a>
+            </div>
+          </div>
           <div class="card-header row align-items-center mt-2">
             <h1 id="title" class="card-title col-8">${gameInfo.name}</h1>
             <h3 id="rating" class="col-4 display-6">Rating : ${gameInfo.rating} - ${gameInfo.ratings_count} votes</h3>
