@@ -24,6 +24,7 @@ const PageDetail = (params = "") => {
         getInfos(response.tags, "tag", displayTags);
         getInfos(response.genres, "genre", displayGenres);
         getInfos(response.platforms, "platform", displayPlatforms);
+        getInfos(response.stores, "stores", displayStores);
         getScreenshots(URL, response.id);
         return response;
       });
@@ -36,12 +37,12 @@ const PageDetail = (params = "") => {
         <div class="jumbotron jumbotron-fluid d-flex justify-content-end align-items-end" style="background-image: url('${gameInfo.background_image}');">
           <a href="${gameInfo.website}" id="website" class="btn btn-red mr-2">Check website !</a>
         </div>
-          <h1 id="title" class="card-title">${gameInfo.name}</h1>
-          <div class="row mt-2">
-            <h3 id="release-date" class="col-7">Release date : <span>${gameInfo.released}</span></h3>
-            <h3 id="rating" class="col-5">Rating : ${gameInfo.rating} (${gameInfo.ratings_count} ratings)</h3>
+          <div class="card-header row align-items-center mt-2">
+            <h1 id="title" class="card-title col-8">${gameInfo.name}</h1>
+            <h3 id="rating" class="col-4 display-6">Rating : ${gameInfo.rating} - ${gameInfo.ratings_count} votes</h3>
           </div>
           <div class="card-body">
+          <p id="release-date" class="col-7">Release date : <span>${gameInfo.released}</span></p>
             <div id="genre" class="col-6"></div>
             <p id="description" class="text-justify">${gameInfo.description}</p>
             <div class="row">
@@ -58,14 +59,13 @@ const PageDetail = (params = "") => {
                 <div id="platform" class="row"></div>
               </div>
             </div>
-            <div class="row">
-              <div id="tag" class="col-6"></div>
+            <div class="my-4">
+              <div id="tag"></div>
             </div>
+            <h3>Buy</h3>
+            <div id="stores"></div>
             <h3>Screenshots</h3>
             <div id="screenshots" class="row"></div>
-          </div>
-          <div class="card-footer">
-            <a href="${gameInfo.website}" id="website">${gameInfo.website}</a>
           </div>
         </div>
       </section>
@@ -117,13 +117,13 @@ const displayPublishers = (container, publisher) => {
 
 const displayTags = (container, tag) => {
   container.innerHTML += `
-    <a href="index.html?tags=${tag.id}#pagelist" class="badge badge-primary">${tag.name}</a>
+    <a href="index.html?tags=${tag.id}#pagelist" class="badge badge-primary p-2">${tag.name}</a>
   `
 };
 
 const displayGenres = (container, genre) => {
   container.innerHTML += `
-    <a href="index.html?genres=${genre.id}#pagelist" class="badge badge-secondary">${genre.name}</a>
+    <a href="index.html?genres=${genre.id}#pagelist" class="badge badge-secondary p-2">${genre.name}</a>
   `
 };
 
@@ -133,9 +133,16 @@ const displayPlatforms = (container, platform) => {
   `
 };
 
+const displayStores = (container, store) => {
+  console.log(store.store);
+  container.innerHTML += `
+    <li><a href="${store.store.domain}">${store.store.name}</a></li>
+  `
+};
+
 const displayScreenshots = (container, screenshot) => {
   container.innerHTML += `
-    <img src="${screenshot.image}" alt="game_image" style="width: 500px" class="col-6">
+    <img src="${screenshot.image}" alt="game_image" style="width: 500px" class="col-6 my-1">
   `
 };
 

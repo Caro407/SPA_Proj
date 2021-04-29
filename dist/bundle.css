@@ -10034,10 +10034,6 @@ a.block:hover, a:visited.block:hover {
   padding-right: 2rem;
 }
 
-.card-body {
-  font-size: 0, 75%;
-}
-
 p {
   text-align: justify;
 }
@@ -10052,4 +10048,20 @@ p {
 .jumbotron {
   height: 40vh;
   background-size: cover;
+}
+
+.card h1 {
+  font-size: 300%;
+  font-weight: bold;
+  font-variant: small-caps;
+  color: white;
+}
+.card h3 {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.footer-line {
+  width: 20vw;
+  border-top: solid 5px #dc3545;
 }
