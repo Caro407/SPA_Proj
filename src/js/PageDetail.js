@@ -1,6 +1,6 @@
 const PageDetail = (params = "") => {
   const defaultSearchParams = {
-    key: "d36a865877a14bb08622b5ba79128cb3"
+    key: process.env.API_KEY
   };
 
   const searchGame = () => {

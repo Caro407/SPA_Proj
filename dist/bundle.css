@@ -9988,6 +9988,7 @@ input:focus {
   width: auto;
   height: 200px;
   background-size: cover;
+  border-radius: 2%;
 }
 .img-list .img-list-text {
   background: linear-gradient(to bottom, #00000088 30%, transparent);
@@ -10030,6 +10031,11 @@ a.block, a:visited.block {
 }
 a.block:hover, a:visited.block:hover {
   background: #eee;
+}
+
+.home, .home:visited {
+  text-decoration: none;
+  color: #dc3545;
 }
 
 .form-group {

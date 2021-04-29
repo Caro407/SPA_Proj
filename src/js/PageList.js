@@ -10,7 +10,7 @@ const PageList = (pageParams = "") => {
       const defaultSearchParams = {
         page_size: "9",
         ordering: "-rating",
-        key: "d36a865877a14bb08622b5ba79128cb3"
+        key: process.env.API_KEY
       };
 
       let totalParams = {

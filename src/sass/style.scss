@@ -64,6 +64,7 @@ input:focus {
     width: auto;
     height: 200px;
     background-size: cover;
+    border-radius: 2%;
     .img-list-text {
         background: linear-gradient(to bottom, #00000088 30%, transparent);
         &:hover {
@@ -110,6 +111,11 @@ a, a:visited {
 			background: #eee;
 		}
 	}
+}
+
+.home, .home:visited {
+  text-decoration: none;
+  color: $red;
 }
 
 .form-group {
