@@ -1,8 +1,8 @@
 import { platformIcons } from './data.js'
 
-const PageList = (argument = "", pageParams = "") => {
+const PageList = (pageParams = "") => {
   const searchGames = () => {
-    let cleanedArgument = argument.replace(/\s+/g, "-");
+    //let cleanedArgument = argument.replace(/\s+/g, "-");
     let articles = "";
 
     const URL = "https://api.rawg.io/api";
@@ -16,8 +16,8 @@ const PageList = (argument = "", pageParams = "") => {
 
       let totalParams = {
         ...defaultSearchParams,
-        ...params,
-        ...pageParams
+        ...params
+        //...pageParams
       };
 
       let query = new URLSearchParams(totalParams);
@@ -36,7 +36,7 @@ const PageList = (argument = "", pageParams = "") => {
     };
 
     document.getElementById('intro').classList.remove('d-none');
-    getGamesByFilter({search: cleanedArgument});
+    getGamesByFilter(pageParams);
   };
 
   const constructPage = (response) => {

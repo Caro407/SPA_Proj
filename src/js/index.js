@@ -2,18 +2,16 @@ import { routes } from './routes.js';
 import 'bootstrap';
 import '../sass/style.scss';
 
-let pageArgument;
 let searchParams;
 
 const setRoute = () => {
   let path = window.location.hash.substring(1).split("/");
-  searchParams = new URLSearchParams(window.location.search);
-  pageArgument = path[1] || "";
+  searchParams = window.location.search
 
   var pageContent = document.getElementById("pageContent");
   let finalParams = queryToJson(searchParams);
 
-  routes[path[0]](pageArgument, finalParams);
+  routes[path[0]](finalParams);
   return true;
 };
 
@@ -24,7 +22,7 @@ const getSearch = () => {
       event.preventDefault();
       pageContent.innerHTML = `<div id="articles-list" class="row"></div>`;
       let input = document.getElementById("game-searched-input");
-      window.location = `#pagelist/${input.value}`
+      window.location = `?search=${input.value}#pagelist`
   });
 };
 
