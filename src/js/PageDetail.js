@@ -1,4 +1,4 @@
-const PageDetail = (argument = "") => {
+const PageDetail = (argument = "", params = "") => {
   const searchGame = () => {
     let cleanedArgument = argument.replace(/\s+/g, "-");
 

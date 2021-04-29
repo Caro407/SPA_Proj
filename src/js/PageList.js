@@ -1,6 +1,6 @@
 import { platformIcons } from './data.js'
 
-const PageList = (argument = "") => {
+const PageList = (argument = "", pageParams = "") => {
   const searchGames = () => {
     let cleanedArgument = argument.replace(/\s+/g, "-");
     let articles = "";
@@ -16,7 +16,8 @@ const PageList = (argument = "") => {
 
       let totalParams = {
         ...defaultSearchParams,
-        ...params
+        ...params,
+        ...pageParams
       };
 
       let query = new URLSearchParams(totalParams);
@@ -103,10 +104,6 @@ const displayGamePlatforms = (container, platform) => {
     <img src="src/images/${platformIcons[platformSearched]}" alt="game_image" style="width: 20px">
     `
   };
-};
-
-const getPlatformIcon = (platform) => {
-
 };
 
 export { PageList };
