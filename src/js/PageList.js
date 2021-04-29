@@ -2,7 +2,6 @@ import { platformIcons } from './data.js'
 
 const PageList = (pageParams = "") => {
   const searchGames = () => {
-    //let cleanedArgument = argument.replace(/\s+/g, "-");
     let articles = "";
 
     const URL = "https://api.rawg.io/api";
@@ -17,7 +16,6 @@ const PageList = (pageParams = "") => {
       let totalParams = {
         ...defaultSearchParams,
         ...params
-        //...pageParams
       };
 
       let query = new URLSearchParams(totalParams);
@@ -45,7 +43,7 @@ const PageList = (pageParams = "") => {
       articlesList.innerHTML += `
       <div class="card col-4 p-2" style="width: 18rem;">
         <img src="${game.background_image}" class="card-img-top img-list" alt="game_image">
-        <h3 class="card-title"><a href = "#pagedetail/${game.id}"><strong>${game.name}</strong></a></h3>
+        <h3 class="card-title"><a href = "index.html?game_id=${game.id}#pagedetail"><strong>${game.name}</strong></a></h3>
         <div id="platform-icon-${i}"></div>
       </div>
       `;

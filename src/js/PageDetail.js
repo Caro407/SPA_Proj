@@ -1,16 +1,20 @@
-const PageDetail = (argument = "", params = "") => {
+const PageDetail = (params = "") => {
   const searchGame = () => {
-    let cleanedArgument = argument.replace(/\s+/g, "-");
+    //let cleanedArgument = argument.replace(/\s+/g, "-");
 
-    const URL = "https://api.rawg.io/api/games";
+    const URL = "https://api.rawg.io/api/games/";
 
-    const buildParamsIndex = () => {
-      return new URLSearchParams({
+    const fetchURL = (params) => {
+      const defaultSearchParams = {
         key: "d36a865877a14bb08622b5ba79128cb3"
-      });
+      };
+
+      let query = new URLSearchParams(defaultSearchParams);
+
+      return fetch(URL + params.game_id + "?" + query);
     };
 
-    fetch(URL + `/${cleanedArgument}?` + buildParamsIndex())
+    fetchURL(params)
       .then((response) => response.json())
       .then(response => {
         console.log(response);
@@ -21,8 +25,7 @@ const PageDetail = (argument = "", params = "") => {
         getInfos(response.tags, "tag", displayTags);
         getInfos(response.genres, "genre", displayGenres);
         getInfos(response.platforms, "platform", displayPlatforms);
-        getScreenshots(URL, cleanedArgument, buildParamsIndex);
-        //getTrailer(URL, cleanedArgument, buildParamsIndex);
+        getScreenshots(URL, params, buildParamsIndex);
         return response;
       });
   };
