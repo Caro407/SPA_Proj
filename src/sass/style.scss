@@ -1,6 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
 
-$color-red: rgb(255, 20, 20);
+$red: #dc3545;
 $black: #262626;
 
 body {
@@ -10,7 +10,7 @@ body {
 }
 
 h1 {
-  color: $color-red;
+  color: $red;
   font-weight: bold;
 }
 
@@ -58,7 +58,6 @@ input:focus {
 
 #showmore-btn {
   margin: 0 auto;
-  padding: 0.75rem 2.5rem;
 }
 
 .img-list {
@@ -102,4 +101,35 @@ a, a:visited {
 			background: #eee;
 		}
 	}
+}
+
+.form-group {
+  width: 20vw;
+  #platform-select {
+    background-color: #dc3545;
+    border-radius: 1px;
+    color: white;
+    border-color: #dc3545;
+    padding-right: 2rem;
+  }
+}
+
+.card-body {
+  font-size: 0,75%;
+}
+
+p {
+  text-align: justify;
+}
+
+.btn-red {
+  background-color: $red;
+  color: white;
+  border-radius: 2px;
+  padding: 0.75rem 2.5rem;
+}
+
+.jumbotron {
+  height: 40vh;
+  background-size: cover;
 }
