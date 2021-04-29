@@ -9987,10 +9987,19 @@ input:focus {
 .img-list {
   width: auto;
   height: 200px;
+  background-size: cover;
 }
-
-.img-list:hover {
-  opacity: 40%;
+.img-list .img-list-text {
+  background: linear-gradient(to bottom, #00000088 30%, transparent);
+}
+.img-list .img-list-text:hover {
+  background: linear-gradient(to bottom, #000000cc 30%, #00000099);
+}
+.img-list .img-list-text:hover * {
+  transform: scale(1.05);
+}
+.img-list .img-list-text * {
+  transition: transform 0.2s ease-in-out;
 }
 
 .card-banner {

@@ -42,13 +42,17 @@ const PageList = (pageParams = "") => {
     response.results.forEach( (game, i) => {
       articlesList.innerHTML += `
       <div class="card col-4 p-2" style="width: 18rem;">
-        <img src="${game.background_image}" class="card-img-top img-list" alt="game_image">
-        <h3 class="card-title"><a href = "index.html?game_id=${game.id}#pagedetail"><strong>${game.name}</strong></a></h3>
-        <div id="platform-icon-${i}"></div>
+        <div class="img-list" style="background-image: url('${game.background_image}')">
+          <div class="img-list-text h-100 d-flex flex-column align-items-center justify-content-around">
+            <h3 class="card-title text-center"><a href = "index.html?game_id=${game.id}#pagedetail"><strong>${game.name}</strong></a></h3>
+            <div class="platform-icon"></div>
+          </div>
+        </div>
       </div>
       `;
-
-      getInfos(game.platforms, `platform-icon-${i}`, displayGamePlatforms)
+      let node = articlesList.querySelectorAll('.platform-icon');
+      let element = node[node.length - 1];
+      getSpecificInfos(game.platforms, element, displayGamePlatforms);
     });
   };
 
@@ -89,6 +93,14 @@ const PageList = (pageParams = "") => {
 const getInfos = (array, info, htmlRenderer) => {
   if(array != null && array.length > 0) {
     let container = document.getElementById(`${info}`);
+    array.forEach(result => {
+      htmlRenderer(container, result);
+    })
+  };
+};
+
+const getSpecificInfos = (array, container, htmlRenderer) => {
+  if(array != null && array.length > 0) {
     array.forEach(result => {
       htmlRenderer(container, result);
     })

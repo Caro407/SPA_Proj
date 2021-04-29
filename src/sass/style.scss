@@ -63,10 +63,19 @@ input:focus {
 .img-list {
     width: auto;
     height: 200px;
-}
-
-.img-list:hover {
-  opacity: 40%;
+    background-size: cover;
+    .img-list-text {
+        background: linear-gradient(to bottom, #00000088 30%, transparent);
+        &:hover {
+          background: linear-gradient(to bottom, #000000cc 30%, #00000099);
+        }
+        &:hover * {
+          transform: scale(1.05);
+        }
+        * {
+          transition: transform 0.2s ease-in-out;
+        }
+    }
 }
 
 .card-banner {
